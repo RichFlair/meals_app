@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:meals_app/category_item.dart';
+import 'package:meals_app/dummy_data.dart';
 
 class Categories extends StatelessWidget {
   const Categories({super.key});
@@ -8,11 +10,16 @@ class Categories extends StatelessWidget {
     return GridView(
       gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
         maxCrossAxisExtent: 200,
-        childAspectRatio: 3/2,
+        childAspectRatio: 3 / 2,
         crossAxisSpacing: 20,
         mainAxisSpacing: 20,
       ),
-      children: [],
+      children: dummyCategories.map((e) {
+        return CategoryItem(
+          title: e.title,
+          color: e.color,
+        );
+      }).toList(),
     );
   }
 }
