@@ -34,10 +34,10 @@ class MainApp extends StatelessWidget {
               ),
             ),
       ),
-      home: const Categories(),
+      // home: const Categories(),
       routes: {
-        '/category-meals': (context) =>
-            const CategoryMealsScreen()
+        '/': (context) => const Categories(),
+        CategoryMealsScreen.routeName: (context) => const CategoryMealsScreen()
       },
     );
   }
