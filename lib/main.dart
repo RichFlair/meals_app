@@ -17,8 +17,8 @@ class MainApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(
           seedColor: Colors.blue,
         ),
+        canvasColor: Colors.blue.shade50,
         fontFamily: 'Raleway',
-        canvasColor: Colors.red.shade100,
         // Text theme config
         textTheme: ThemeData.light().textTheme.copyWith(
               // body (Large) theme config
