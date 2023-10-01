@@ -21,6 +21,7 @@ class Categories extends StatelessWidget {
         ),
         children: dummyCategories.map((e) {
           return CategoryItem(
+            id: e.id,
             title: e.title,
             color: e.color,
           );
