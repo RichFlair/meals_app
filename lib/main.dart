@@ -13,9 +13,27 @@ class MainApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Awesome Meals',
-      theme: ThemeData(colorSchemeSeed: Colors.blue),
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.blue,
+        ),
+        fontFamily: 'Raleway',
+        canvasColor: Colors.red.shade100,
+        // Text theme config
+        textTheme: ThemeData.light().textTheme.copyWith(
+              // body (Large) theme config
+              bodyLarge: const TextStyle(
+                color: Color.fromRGBO(20, 51, 51, 1),
+              ),
+              // title (Large) theme config
+              titleLarge: const TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                fontFamily: 'RobotoCondensed',
+              ),
+            ),
+      ),
       home: const Categories(),
     );
   }
 }
-
