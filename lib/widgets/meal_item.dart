@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../widgets/meal_item_image.dart';
+import '../widgets/description_label.dart';
 import '../models/meal.dart';
 
 class MealItem extends StatelessWidget {
@@ -20,6 +22,32 @@ class MealItem extends StatelessWidget {
     required this.affordability,
   });
 
+  String get mealComplexityText {
+    switch (complexity) {
+      case Complexity.challanging:
+        return 'Challenging';
+      case Complexity.difficult:
+        return 'Difficult';
+      case Complexity.simple:
+        return 'Simple';
+      default:
+        return 'Unknown';
+    }
+  }
+
+  String get mealAffordabilityText {
+    switch (affordability) {
+      case Affordability.affordable:
+        return 'Affordable';
+      case Affordability.luxurious:
+        return 'Expensive';
+      case Affordability.pricey:
+        return 'Pricey';
+      default:
+        return 'Unknown';
+    }
+  }
+
   void selectMeal() {}
 
   @override
@@ -33,22 +61,12 @@ class MealItem extends StatelessWidget {
             borderRadius: BorderRadius.all(Radius.circular(15))),
         child: Column(
           children: [
-            Stack(
-              children: [
-                ClipRRect(
-                  borderRadius: const BorderRadius.only(
-                    topLeft: Radius.circular(15),
-                    topRight: Radius.circular(15),
-                  ),
-                  child: Image.network(
-                    imageUrl,
-                    height: 250,
-                    width: double.infinity,
-                    fit: BoxFit.cover,
-                  ),
-                )
-              ],
-            )
+            MealItemImage(imageUrl: imageUrl, title: title),
+            DescriptionLabel(
+              duration: duration,
+              mealAffordabilityText: mealAffordabilityText,
+              mealComplexityText: mealComplexityText,
+            ),
           ],
         ),
       ),
