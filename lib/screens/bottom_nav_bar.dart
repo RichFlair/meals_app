@@ -10,9 +10,15 @@ class TabBarScreen extends StatefulWidget {
 }
 
 class _TabBarScreenState extends State<TabBarScreen> {
-  final List<Widget> _pages = [
-    const CategoriesScreen(),
-    const FavouritesScreen(),
+  final List<Map<String, Object>> _pages = [
+    {
+      'title': 'Awesome Meals',
+      'page': const CategoriesScreen(),
+    },
+    {
+      'title': 'Favourites',
+      'page': const FavouritesScreen(),
+    }
   ];
 
   int _selectedPageIndex = 0;
@@ -29,9 +35,13 @@ class _TabBarScreenState extends State<TabBarScreen> {
       appBar: AppBar(
         title: const Text('Awesome Meals'),
       ),
-      body: _pages[_selectedPageIndex],
+      body: _pages[_selectedPageIndex]['page'],
       bottomNavigationBar: BottomNavigationBar(
         onTap: _selectPage,
+        backgroundColor: Theme.of(context).primaryColor,
+        unselectedItemColor: Colors.white,
+        selectedItemColor: Theme.of(context).colorScheme.secondary,
+        currentIndex: _selectedPageIndex,
         items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.category),
