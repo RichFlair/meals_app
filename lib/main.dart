@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:meals_app/screens/meal_detail_screen.dart';
-import 'package:meals_app/screens/tab_bar.dart';
+import 'package:meals_app/screens/bottom_nav_bar.dart';
 import 'screens/category_meals_screen.dart';
 import 'screens/categories_screen.dart';
 
@@ -19,6 +19,7 @@ class MainApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
           seedColor: Colors.blue,
+          secondary: Colors.orange,
         ),
         canvasColor: Colors.blue.shade50,
         fontFamily: 'Raleway',
