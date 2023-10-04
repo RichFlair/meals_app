@@ -10,13 +10,13 @@ class TabBarScreen extends StatefulWidget {
 }
 
 class _TabBarScreenState extends State<TabBarScreen> {
-  final List<Map<String, Object>> _pages = [
+  final List<Map<String, Widget>> _pages = [
     {
-      'title': 'Awesome Meals',
+      'title': const Text('Awesome Meals'),
       'page': const CategoriesScreen(),
     },
     {
-      'title': 'Favourites',
+      'title': const Text('Favourites'),
       'page': const FavouritesScreen(),
     }
   ];
@@ -33,7 +33,7 @@ class _TabBarScreenState extends State<TabBarScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Awesome Meals'),
+        title: _pages[_selectedPageIndex]['title'],
       ),
       body: _pages[_selectedPageIndex]['page'],
       bottomNavigationBar: BottomNavigationBar(
