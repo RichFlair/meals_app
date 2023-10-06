@@ -33,7 +33,7 @@ class MainApp extends StatelessWidget {
               ),
               // title (Large) theme config
               titleLarge: const TextStyle(
-                fontSize: 20,
+                fontSize: 22,
                 fontWeight: FontWeight.bold,
                 fontFamily: 'RobotoCondensed',
               ),
