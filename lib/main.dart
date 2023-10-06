@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:meals_app/screens/favourites_screen.dart';
+import 'package:meals_app/screens/filters_screen.dart';
 import 'package:meals_app/screens/meal_detail_screen.dart';
 import 'package:meals_app/screens/bottom_nav_bar.dart';
 import 'screens/category_meals_screen.dart';
@@ -39,9 +41,11 @@ class MainApp extends StatelessWidget {
       ),
       // home: const Categories(),
       routes: {
-        '/': (context) => const TabBarScreen(),
+        '/': (context) => const BottomNavBar(),
         CategoryMealsScreen.routeName: (context) => const CategoryMealsScreen(),
-        MealDetailScreen.routeName: (context) => const MealDetailScreen()
+        MealDetailScreen.routeName: (context) => const MealDetailScreen(),
+        FiltersScreen.routeName: (context) => const FiltersScreen(),
+        FavouritesScreen.routeName: (context) => const FavouritesScreen(),
       },
       onUnknownRoute: (settings) {
         return MaterialPageRoute(

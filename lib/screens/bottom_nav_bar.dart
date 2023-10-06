@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:meals_app/screens/categories_screen.dart';
-import 'package:meals_app/screens/favourites_screen.dart';
-import 'package:meals_app/widgets/drawer.dart';
+import '../screens/categories_screen.dart';
+import '../screens/favourites_screen.dart';
+import '../widgets/main_drawer.dart';
 
-class TabBarScreen extends StatefulWidget {
-  const TabBarScreen({super.key});
+class BottomNavBar extends StatefulWidget {
+  const BottomNavBar({super.key});
 
   @override
-  State<TabBarScreen> createState() => _TabBarScreenState();
+  State<BottomNavBar> createState() => _BottomNavBarState();
 }
 
-class _TabBarScreenState extends State<TabBarScreen> {
+class _BottomNavBarState extends State<BottomNavBar> {
   final List<Map<String, Widget>> _pages = [
     {
       'title': const Text('Awesome Meals'),
@@ -37,7 +37,7 @@ class _TabBarScreenState extends State<TabBarScreen> {
         title: _pages[_selectedPageIndex]['title'],
       ),
       body: _pages[_selectedPageIndex]['page'],
-      drawer: const DrawerWidget(),
+      drawer: const MainDrawer(),
       bottomNavigationBar: BottomNavigationBar(
         onTap: _selectPage,
         backgroundColor: Theme.of(context).primaryColor,
