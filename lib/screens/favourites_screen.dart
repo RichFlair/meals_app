@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:meals_app/widgets/main_drawer.dart';
 
 class FavouritesScreen extends StatelessWidget {
   static const routeName = '/favourites';
@@ -10,6 +11,7 @@ class FavouritesScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Favourites'),
       ),
+      drawer: const MainDrawer(),
       body: const Center(
         child: Text('Favourites'),
       ),

@@ -41,7 +41,7 @@ class MainDrawer extends StatelessWidget {
             'Meals',
             Icons.restaurant,
             () {
-              Navigator.of(context).popAndPushNamed('/');
+              Navigator.of(context).pushReplacementNamed('/');
             },
           ),
           const Divider(),
@@ -50,7 +50,8 @@ class MainDrawer extends StatelessWidget {
             'Filters',
             Icons.settings,
             () {
-              Navigator.of(context).popAndPushNamed(FiltersScreen.routeName);
+              Navigator.of(context)
+                  .pushReplacementNamed(FiltersScreen.routeName);
             },
           ),
           const Divider(),
@@ -59,7 +60,8 @@ class MainDrawer extends StatelessWidget {
             'Favourites',
             Icons.favorite,
             () {
-              Navigator.of(context).popAndPushNamed(FavouritesScreen.routeName);
+              Navigator.of(context)
+                  .pushReplacementNamed(FavouritesScreen.routeName);
             },
           ),
           const Divider(),
