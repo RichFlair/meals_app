@@ -2,8 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:meals_app/widgets/main_drawer.dart';
 
 class FiltersScreen extends StatefulWidget {
+  final Function setFilters;
   static const routeName = '/filters';
-  const FiltersScreen({super.key});
+  const FiltersScreen({
+    super.key,
+    required this.setFilters,
+  });
 
   @override
   State<FiltersScreen> createState() => _FiltersScreenState();
@@ -34,6 +38,23 @@ class _FiltersScreenState extends State<FiltersScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Filters'),
+        actions: [
+          IconButton(
+            onPressed: () {
+              final filters = {
+                'gluten': isGlutenFree,
+                'lactose': isLactoseFree,
+                'vegan': isVegan,
+                'vegegtarian': isVegetarian,
+              };
+              widget.setFilters(filters);
+            },
+            icon: const Icon(
+              Icons.save,
+              color: Colors.white,
+            ),
+          ),
+        ],
       ),
       drawer: const MainDrawer(),
       body: Column(
@@ -93,6 +114,27 @@ class _FiltersScreenState extends State<FiltersScreen> {
                   },
                 ),
                 const Divider(),
+                Container(
+                  margin: const EdgeInsets.symmetric(
+                    vertical: 50,
+                    horizontal: 150,
+                  ),
+                  child: ElevatedButton(
+                    onPressed: () {
+                      final filters = {
+                        'gluten': isGlutenFree,
+                        'lactose': isLactoseFree,
+                        'vegan': isVegan,
+                        'vegegtarian': isVegetarian,
+                      };
+                      widget.setFilters(filters);
+                    },
+                    child: const Padding(
+                      padding: EdgeInsets.symmetric(vertical: 15),
+                      child: Text('Save'),
+                    ),
+                  ),
+                )
               ],
             ),
           ),

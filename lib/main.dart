@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:meals_app/dummy_data.dart';
+import 'package:meals_app/models/meal.dart';
 import 'package:meals_app/screens/favourites_screen.dart';
 import 'package:meals_app/screens/filters_screen.dart';
 import 'package:meals_app/screens/meal_detail_screen.dart';
@@ -10,8 +12,43 @@ void main() {
   runApp(const MainApp());
 }
 
-class MainApp extends StatelessWidget {
+class MainApp extends StatefulWidget {
   const MainApp({super.key});
+
+  @override
+  State<MainApp> createState() => _MainAppState();
+}
+
+class _MainAppState extends State<MainApp> {
+  Map<String, bool> filters = {
+    'gluten': false,
+    'lactose': false,
+    'vegan': false,
+    'vegegtarian': false,
+  };
+
+  List<Meal> availableMeals = dummyMeals;
+
+  void _setFilters(Map<String, bool> filterData) {
+    setState(() {
+      filters = filterData;
+      availableMeals.where((meal) {
+        if (filters['gluten']! && !meal.isGlutenFree) {
+          return false;
+        }
+        if (filters['lactose']! && !meal.isLactoseFree) {
+          return false;
+        }
+        if (filters['vegan']! && !meal.isVegan) {
+          return false;
+        }
+        if (filters['vegetarian']! && !meal.isVegetarian) {
+          return false;
+        }
+        return true;
+      });
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -42,9 +79,10 @@ class MainApp extends StatelessWidget {
       // home: const Categories(),
       routes: {
         '/': (context) => const BottomNavBar(),
-        CategoryMealsScreen.routeName: (context) => const CategoryMealsScreen(),
+        CategoryMealsScreen.routeName: (context) =>
+            CategoryMealsScreen(currentMeals: availableMeals),
         MealDetailScreen.routeName: (context) => const MealDetailScreen(),
-        FiltersScreen.routeName: (context) => const FiltersScreen(),
+        FiltersScreen.routeName: (context) => FiltersScreen(setFilters: _setFilters),
         FavouritesScreen.routeName: (context) => const FavouritesScreen(),
       },
       onUnknownRoute: (settings) {
