@@ -82,7 +82,8 @@ class _MainAppState extends State<MainApp> {
         CategoryMealsScreen.routeName: (context) =>
             CategoryMealsScreen(currentMeals: availableMeals),
         MealDetailScreen.routeName: (context) => const MealDetailScreen(),
-        FiltersScreen.routeName: (context) => FiltersScreen(setFilters: _setFilters),
+        FiltersScreen.routeName: (context) =>
+            FiltersScreen(currentFilters: filters, setFilters: _setFilters),
         FavouritesScreen.routeName: (context) => const FavouritesScreen(),
       },
       onUnknownRoute: (settings) {
