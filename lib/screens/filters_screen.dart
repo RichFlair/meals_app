@@ -59,6 +59,7 @@ class _FiltersScreenState extends State<FiltersScreen> {
                     });
                   },
                 ),
+                const Divider(),
                 switchListItem(
                   'Lactose-free',
                   'Only lactose-free meals',
@@ -69,6 +70,7 @@ class _FiltersScreenState extends State<FiltersScreen> {
                     });
                   },
                 ),
+                const Divider(),
                 switchListItem(
                   'Vegetarian',
                   'Only vegetarian meals',
@@ -79,6 +81,7 @@ class _FiltersScreenState extends State<FiltersScreen> {
                     });
                   },
                 ),
+                const Divider(),
                 switchListItem(
                   'Vegan',
                   'Only vegan meals',
@@ -89,6 +92,7 @@ class _FiltersScreenState extends State<FiltersScreen> {
                     });
                   },
                 ),
+                const Divider(),
               ],
             ),
           ),
