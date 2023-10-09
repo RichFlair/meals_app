@@ -13,23 +13,25 @@ class FavouritesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return Scaffold(
       drawer: const MainDrawer(),
-      body: favoriteMeals.isEmpty ? const Center(
-        child: Text('No Favourites added'),
-      ): ListView.builder(
-        itemBuilder: (context, index) {
-          return MealItem(
-            id: favoriteMeals[index].id,
-            title: favoriteMeals[index].title,
-            imageUrl: favoriteMeals[index].imageUrl,
-            duration: favoriteMeals[index].duration,
-            complexity: favoriteMeals[index].complexity,
-            affordability: favoriteMeals[index].affordability,
-          );
-        },
-        itemCount: favoriteMeals.length,
-      ),
+      body: favoriteMeals.isEmpty
+          ? const Center(
+              child: Text('No Favourites added'),
+            )
+          : ListView.builder(
+              itemBuilder: (context, index) {
+                return MealItem(
+                  id: favoriteMeals[index].id,
+                  title: favoriteMeals[index].title,
+                  imageUrl: favoriteMeals[index].imageUrl,
+                  duration: favoriteMeals[index].duration,
+                  complexity: favoriteMeals[index].complexity,
+                  affordability: favoriteMeals[index].affordability,
+                );
+              },
+              itemCount: favoriteMeals.length,
+            ),
     );
   }
 }
