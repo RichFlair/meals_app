@@ -21,14 +21,14 @@ class _FiltersScreenState extends State<FiltersScreen> {
   bool isVegetarian = false;
   bool isVegan = false;
 
-  @override
-  void initState() {
-    isGlutenFree = widget.currentFilters['gluten']!;
-    isLactoseFree = widget.currentFilters['lactose']!;
-    isVegan = widget.currentFilters['vegan']!;
-    isVegetarian = widget.currentFilters['vegetarian']!;
-    super.initState();
-  }
+  // @override
+  // void initState() {
+  //   isGlutenFree = widget.currentFilters['gluten']!;
+  //   isLactoseFree = widget.currentFilters['lactose']!;
+  //   isVegan = widget.currentFilters['vegan']!;
+  //   isVegetarian = widget.currentFilters['vegetarian']!;
+  //   super.initState();
+  // }
 
   Widget switchListItem(
     String title,
